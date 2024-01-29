@@ -16,7 +16,7 @@ The intended control flow is as follows:
 
 - **Host**:
   - Encode command as bytes
-  - Send command length over serial interface, as a [`varint`](https://protobuf.dev/programming-guides/encoding/#varints)
+  - Send command length over serial interface, as an unsigned 32-bit integer in little endian byte order
   - Send command data over serial interface
 - **Keypad**:
   - Read command length from serial interface
@@ -24,7 +24,7 @@ The intended control flow is as follows:
   - Decode command data
   - Process command
   - Encode response as bytes
-  - Send response length over serial interface, as a `varint`
+  - Send response length over serial interface, as an unsigned 32-bit integer in little endian byte order
   - Send response data over serial interface
 - **Host**:
   - Read response length from serial interface

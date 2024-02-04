@@ -24,8 +24,6 @@ message Command {
   reserved 201 to 299;    // Reserved for state commands
   reserved 1003 to 1099;  // Reserved for main configuration commands
   reserved 1103 to 1199;  // Reserved for hall effect key configuration commands
-  reserved 1200 to 1299;  // Reserved for RGB underglow LED configuration commands
-  reserved 1300 to 1399;  // Resrved for RGB switch LED configuration commands
 
   oneof type {
     // Top-Level Commands: 100 to 199
@@ -48,9 +46,6 @@ message Command {
 
     SetHEKeyConfiguration set_he_key_configuration = 1100;
     RevertHEKeyConfiguration revert_he_key_configuration = 1101;
-
-    // RGB Underglow LED Configuration Commands: 1200 to 1299
-    // RGB Switch LED Configuration Commands: 1300 to 1399
   }
 }
 
@@ -63,8 +58,6 @@ message Response {
   reserved 201 to 299;    // Reserved for state commands
   reserved 1003 to 1099;  // Reserved for main configuration commands
   reserved 1103 to 1199;  // Reserved for hall effect key configuration commands
-  reserved 1200 to 1299;  // Reserved for RGB underglow LED configuration commands
-  reserved 1300 to 1399;  // Resrved for RGB switch LED configuration commands
 
   oneof data {
     // Top-Level Commands: 100 to 199
@@ -87,8 +80,5 @@ message Response {
 
     SetHEKeyConfigurationResponse set_he_key_configuration = 1100;
     RevertHEKeyConfigurationResponse revert_he_key_configuration = 1101;
-
-    // RGB Underglow LED Configuration Commands: 1200 to 1299
-    // RGB Switch LED Configuration Commands: 1300 to 1399
   }
 }

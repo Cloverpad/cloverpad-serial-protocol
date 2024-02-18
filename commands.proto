@@ -28,7 +28,7 @@ message Command {
   oneof type {
     // Top-Level Commands: 100 to 199
 
-    FirmwareVersion firmware_version = 100;
+    GetKeypadInformation get_keypad_information = 100;
     GetConfiguration get_configuration = 101;
     SaveConfiguration save_configuration = 102;
     FactoryReset factory_reset = 103;
@@ -62,7 +62,7 @@ message Response {
   oneof data {
     // Top-Level Commands: 100 to 199
 
-    FirmwareVersionResponse firmware_version = 100;
+    KeypadInformationResponse get_keypad_information = 100;
     FullConfigurationResponse get_configuration = 101;
     FullConfigurationResponse save_configuration = 102;
     FullConfigurationResponse factory_reset = 103;

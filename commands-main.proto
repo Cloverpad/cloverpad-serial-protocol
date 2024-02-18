@@ -4,13 +4,32 @@ package cloverpad;
 
 import "config.proto";
 
-// Command for getting the firmware version of the keypad.
-message FirmwareVersion {}
+// Defines the different keypad variants.
+enum KeypadVariant {
+  reserved 2 to 99;   // Reserved for Cloverpad HE revisions
 
-// Response for the 'FirmwareVersion' command.
-message FirmwareVersionResponse {
-  // The firmware version in YYYYMMDD format
-  int32 version = 1;
+  // Unknown Keypad
+  UNKNOWN = 0;
+
+  // Cloverpad HE rev. 1
+  CLOVERPAD_HE_R1 = 1;
+}
+
+// Command for getting the keypad's main information.
+message GetKeypadInformation {}
+
+// Response which contains the keypad's main information.
+message KeypadInformationResponse {
+  reserved 4 to 99;     // Reserved for top-level information
+
+  // The keypad variant
+  KeypadVariant variant = 1;
+
+  // The unique ID for this keypad
+  uint64 id = 2;
+
+  // The installed firmware version, in YYYYMMDD format
+  uint32 firmware_version = 3;
 }
 
 // Gets the full keypad configuration that is currently active.
